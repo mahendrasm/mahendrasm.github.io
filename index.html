@@ -21,7 +21,7 @@
         IPython/Jupyter Notebooks
       </h3>
       <p>
-        <a href="https://ipython.org/">IPython</a> or <a href="https://jupyter.org/">Jupyter Notebooks</a> are one of the favorite tools not just in the Data Science community but Python core development too.
+        <a href="https://ipython.org/">IPython</a> or <a href="https://jupyter.org/">Jupyter Notebooks</a> are one of the favorite tools not just in the Data Science community but Python general development too.
         You can do all sort of amazing interactions with the python code using these notebooks. Jupyter notebooks support a lot of various media objects like image/audio etc. that can be easily embedded.
         To support all such media rich elements it stores a notebook in json format(.ipynb extension) with all the metadata so that a notebook can be copied and ported to another server easily.
       </p>
@@ -38,7 +38,13 @@
         
         For example:
         <pre>
+          To convert a notebook into html
           <code>
+          $ jupyter nbconvert --to html <input-notebook.ipynb>
+          </code>
+          You can convert a notebook to any of the supported format:
+          <code>
+          $ jupyter nbconvert --to <output-format> <input-notebook.ipynb>
           </code>
         </pre>
       </p>
@@ -48,7 +54,10 @@
         Indexing Jupyter Notebooks in GIT for version control
       </h3>
       <p>
-         
+         Although keeping a Jupyter Notebook in its default json format or .ipynb file extention it the best way to preserve every piece of it and port it to any other machine. But indexing it in the same format for
+         version control is not a good choice because it will index unnecessary metadata. If your main purpose to index a Jupyter notebook is to version control the code cells (not caring about output and any other fancy media objects)
+         or code reviews for the change then indexing the notebook after converiting to Restructured Text (rst) is a much better option, as it will get rid of most of the metadata 
+         and still able to reproduce all the code and markdown cells. It also help in keeping the code changes or diff simple and readable.
       </p>
       
       
